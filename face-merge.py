@@ -146,10 +146,10 @@ if __name__ == '__main__':
     img  = []
     while line:
         array = line.split()
-        if (array[9] == "0"): 
-            if (array[20] == "0"): 
-                if (array[31] == "0"):
-                    if (array[33] == "0"):
+        if (int(array[9]) == Blond_Hair): 
+            if (int(array[20]) == Male): 
+                if (int(array[31]) == Smiling):
+                    if (int(array[33]) == Wavy_Hair):
                         img.append(array[0])
         line = f.readline()
     
