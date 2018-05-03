@@ -3,6 +3,7 @@ import cv2
 import dlib
 from scipy.spatial import Delaunay
 import sys
+import shutil
 import os
 
 predictor_model = 'shape_predictor_68_face_landmarks.dat'
