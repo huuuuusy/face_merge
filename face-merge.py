@@ -142,7 +142,6 @@ if __name__ == '__main__':
     print (Male)
     print (Smiling)
     print (Wavy_Hair)
-    print (Wavy_Hair+Smiling)
     img  = []
     # while line:
     #     array = line.split()
@@ -155,10 +154,10 @@ if __name__ == '__main__':
     
     while line:
         array = line.split()
-        if (array[9] == Blond_Hair):
-            if (array[20] == Male):
-                if (array[31] == Smiling):
-                    if (array[33] == Wavy_Hair):
+        if (array[9] == "Blond_Hair"):
+            if (array[20] == "Male"):
+                if (array[31] == "Smiling"):
+                    if (array[33] == "Wavy_Hair"):
                         img.append(array[0])
         line = f.readline()
 
