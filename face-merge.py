@@ -139,6 +139,7 @@ if __name__ == '__main__':
     # print ("The value of Male: " + Male)
     # print ("The value of Smiling: " + Smiling)
     # print ("The value of Wavy_Hair: " + Wavy_Hair)
+    array = line.split()
     print (array[9])
     print (array[20])
     print (array[31])
