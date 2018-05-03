@@ -134,10 +134,14 @@ if __name__ == '__main__':
 
     f = open("/home/hduser/StarGAN/data/list_attr_celeba.txt")
     line = f.readline() 
-    print ("The value of Blond_hair: " + Blond_Hair)
-    print ("The value of Male: " + Male)
-    print ("The value of Smiling: " + Smiling)
-    print ("The value of Wavy_Hair: " + Wavy_Hair)
+    # print ("The value of Blond_hair: " + Blond_Hair)
+    # print ("The value of Male: " + Male)
+    # print ("The value of Smiling: " + Smiling)
+    # print ("The value of Wavy_Hair: " + Wavy_Hair)
+    print (Blond_Hair)
+    print (Male)
+    print (Smiling)
+    print (Wavy_Hair)
     img  = []
     # while line:
     #     array = line.split()
