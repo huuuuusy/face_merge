@@ -122,10 +122,10 @@ def morph_faces(filename1, filename2, alpha=0.5):
 
 if __name__ == '__main__':
     filename1 = sys.argv[1]
-    Blond_Hair = sys.argv[2]
-    Male = sys.argv[3]
-    Smiling = sys.argv[4]
-    Wavy_Hair = sys.argv[5]
+    Blond_Hair = int(sys.argv[2])
+    Male = int(sys.argv[3])
+    Smiling = int(sys.argv[4])
+    Wavy_Hair = int(sys.argv[5])
     # filename2 = sys.argv[2]
     try:
         alpha = float(sys.argv[6])
@@ -134,10 +134,10 @@ if __name__ == '__main__':
 
     f = open("/home/hduser/StarGAN/data/list_attr_celeba.txt")
     line = f.readline() 
-    print ("The value of Blond_hair: " + int(Blond_Hair))
-    print ("The value of Male: " + int(Male))
-    print ("The value of Smiling: " + int(Smiling))
-    print ("The value of Wavy_Hair: " + int(Wavy_Hair))
+    print ("The value of Blond_hair: " + Blond_Hair)
+    print ("The value of Male: " + Male)
+    print ("The value of Smiling: " + Smiling)
+    print ("The value of Wavy_Hair: " + Wavy_Hair)
     img  = []
     # while line:
     #     array = line.split()
