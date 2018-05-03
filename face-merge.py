@@ -124,8 +124,8 @@ if __name__ == '__main__':
     filename1 = sys.argv[1]
     Blond_Hair = sys.argv[2]
     Male = sys.argv[3]
-	Smiling = sys.argv[4]
-	Wavy_Hair = sys.argv[5]
+    Smiling = sys.argv[4]
+    Wavy_Hair = sys.argv[5]
     # filename2 = sys.argv[2]
     try:
         alpha = float(sys.argv[6])
