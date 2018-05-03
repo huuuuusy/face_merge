@@ -148,7 +148,7 @@ if __name__ == '__main__':
         array = line.split()
         if (array[9] == str(Blond_Hair)): 
             if (array[20] == str(Male)): 
-                if (array[31] == str(Smiling):
+                if (array[31] == str(Smiling)):
                     if (array[33] == str(Wavy_Hair)):
                         img.append(array[0])
         line = f.readline()
