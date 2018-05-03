@@ -148,6 +148,8 @@ if __name__ == '__main__':
     #                 if (array[33] == int(Wavy_Hair)):
     #                     img.append(array[0])
     #     line = f.readline()
+    print (int(Blond_Hair))
+    print (int(Male))
     while line:
         array = line.split()
         if (array[9] == "int(Blond_Hair)"):
