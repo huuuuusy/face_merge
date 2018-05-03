@@ -142,6 +142,7 @@ if __name__ == '__main__':
     print (Male)
     print (Smiling)
     print (Wavy_Hair)
+    print (Wavy_Hair+Smiling)
     img  = []
     # while line:
     #     array = line.split()
