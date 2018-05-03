@@ -159,7 +159,7 @@ if __name__ == '__main__':
     print("The first image in all the "+ str(len(img)) + " images is: "+img[Img_num])
     f.close()
 
-    shutil.copy("/home/hduser/HelloSparkJava/init.jpg","/home/hduser/face_merge/init.jpg")
+    shutil.copy("/home/hduser/HelloSparkJava/src/main/resources/static/init.jpg","/home/hduser/face_merge/init.jpg")
     filename1 = "init.jpg"
 
     shutil.copy("/home/hduser/StarGAN/data/CelebA_nocrop/image/" + img[Img_num],"/home/hduser/face_merge/find.jpg")
@@ -170,6 +170,6 @@ if __name__ == '__main__':
         filename1.split('.')[0], filename2.split('.')[0], alpha)
     cv2.imwrite(output_file, img_morphed)
     print("finish merge")
-    shutil.copy("/home/hduser/face_merge/" + output_file,"/home/hduser/HelloSparkJava/result.jpg")
-    shutil.copy("/home/hduser/face_merge/find.jpg","/home/hduser/HelloSparkJava/find.jpg")
+    shutil.copy("/home/hduser/face_merge/" + output_file,"/home/hduser/HelloSparkJava/src/main/resources/static/result.jpg")
+    shutil.copy("/home/hduser/face_merge/find.jpg","/home/hduser/HelloSparkJava/src/main/resources/static/find.jpg")
 
