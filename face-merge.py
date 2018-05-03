@@ -4,6 +4,26 @@ import dlib
 from scipy.spatial import Delaunay
 import sys
 
+f = open("/home/hduser/StarGAN/data/list_attr_celeba.txt")
+line = f.readline() 
+print(line.split()[9])
+print(line.split()[20])
+print(line.split()[31])
+print(line.split()[33])
+img  = []
+while line:
+    array = line.split()
+    if (array[9] == "0"): 
+        if (array[20] == "0"): 
+            if (array[31] == "0"):
+                if (array[33] == "0"):
+                    img.append(array[0])
+    line = f.readline()
+
+print("Total images in CelebA with same features: "+ str(len(img)))
+print("The first image in all the "+ str(len(img)) + " images is: "+img[0])
+f.close()
+
 predictor_model = 'shape_predictor_68_face_landmarks.dat'
 
 # get facial features by using dlib
@@ -36,16 +56,12 @@ def get_points(image):
 
 
 def get_triangles(points):
-    """
-    在特征点上使用 Delaunay 三角剖分
-    """
+    
     return Delaunay(points).simplices
 
 
 def affine_transform(input_image, input_triangle, output_triangle, size):
-    """
-    仿射变换
-    """
+    
     warp_matrix = cv2.getAffineTransform(
         np.float32(input_triangle), np.float32(output_triangle))
     output_image = cv2.warpAffine(input_image, warp_matrix, (size[0], size[1]), None,
@@ -54,10 +70,7 @@ def affine_transform(input_image, input_triangle, output_triangle, size):
 
 
 def morph_triangle(img1, img2, img, tri1, tri2, tri, alpha):
-    """
-    三角形变形，Alpha 混合
-    """
-    # 计算三角形的边界框
+    
     rect1 = cv2.boundingRect(np.float32([tri1]))
     rect2 = cv2.boundingRect(np.float32([tri2]))
     rect = cv2.boundingRect(np.float32([tri]))
@@ -74,7 +87,7 @@ def morph_triangle(img1, img2, img, tri1, tri2, tri, alpha):
         tri_rect2.append(
             ((tri2[i][0] - rect2[0]), (tri2[i][1] - rect2[1])))
 
-    # 在边界框内进行仿射变换
+    
     img1_rect = img1[rect1[1]:rect1[1] +
                      rect1[3], rect1[0]:rect1[0] + rect1[2]]
     img2_rect = img2[rect2[1]:rect2[1] +
@@ -86,23 +99,21 @@ def morph_triangle(img1, img2, img, tri1, tri2, tri, alpha):
     warped_img2 = affine_transform(
         img2_rect, tri_rect2, tri_rect_warped, size)
 
-    # 加权求和
+    
     img_rect = (1.0 - alpha) * warped_img1 + alpha * warped_img2
 
-    # 生成蒙版
+    
     mask = np.zeros((rect[3], rect[2], 3), dtype=np.float32)
     cv2.fillConvexPoly(mask, np.int32(tri_rect_warped), (1.0, 1.0, 1.0), 16, 0)
 
-    # 应用蒙版
+    
     img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] + rect[2]] = \
         img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] +
             rect[2]] * (1 - mask) + img_rect * mask
 
 
 def morph_faces(filename1, filename2, alpha=0.5):
-    """
-    融合图片
-    """
+    
     img1 = cv2.imread(filename1)
     img2 = cv2.imread(filename2)
 
