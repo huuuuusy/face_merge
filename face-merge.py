@@ -139,11 +139,7 @@ if __name__ == '__main__':
 
     f = open("/home/hduser/StarGAN/data/list_attr_celeba.txt")
     line = f.readline() 
-    # print ("The value of Blond_hair: " + Blond_Hair)
-    # print ("The value of Male: " + Male)
-    # print ("The value of Smiling: " + Smiling)
-    # print ("The value of Wavy_Hair: " + Wavy_Hair)
-    array = line.split()
+    
     print ("The Blond_Hair value: " + str(Blond_Hair))
     print ("The Male value: " + str(Male))
     print ("The Smiling value: " + str(Smiling))
@@ -158,15 +154,6 @@ if __name__ == '__main__':
                     if (array[33] == str(Wavy_Hair)):
                         img.append(array[0])
         line = f.readline()
-    
-    # while line:
-    #     array = line.split()
-    #     if (array[9] == Blond_Hair):
-    #         if (array[20] == Male):
-    #             if (array[31] == Smiling):
-    #                 if (array[33] == Wavy_Hair):
-    #                     img.append(array[0])
-    #     line = f.readline()
 
     print("Total images in CelebA with same features: "+ str(len(img)))
     print("The first image in all the "+ str(len(img)) + " images is: "+img[Img_num])
