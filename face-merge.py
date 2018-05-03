@@ -169,4 +169,5 @@ if __name__ == '__main__':
     print("finish merge")
     shutil.copy("/home/hduser/face_merge/" + output_file,"/home/hduser/HelloSparkJava/result.jpg")
     shutil.copy("/home/hduser/face_merge/" + filename1,"/home/hduser/HelloSparkJava/init.jpg")
+    shutil.copy("/home/hduser/face_merge/find.jpg","/home/hduser/HelloSparkJava/find.jpg")
 
