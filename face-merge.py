@@ -122,18 +122,18 @@ def morph_faces(filename1, filename2, alpha=0.5):
 
 
 if __name__ == '__main__':
-    filename1 = sys.argv[1]
-    Blond_Hair = int(sys.argv[2])
-    Male = int(sys.argv[3])
-    Smiling = int(sys.argv[4])
-    Wavy_Hair = int(sys.argv[5])
+    # filename1 = sys.argv[1]
+    Blond_Hair = int(sys.argv[1])
+    Male = int(sys.argv[2])
+    Smiling = int(sys.argv[3])
+    Wavy_Hair = int(sys.argv[4])
     try:
-        Img_num = int(sys.argv[6])
+        Img_num = int(sys.argv[5])
     except:
         Img_num = 0
     
     try:
-        alpha = float(sys.argv[7])
+        alpha = float(sys.argv[6])
     except:
         alpha = 0.5
 
@@ -159,6 +159,9 @@ if __name__ == '__main__':
     print("The first image in all the "+ str(len(img)) + " images is: "+img[Img_num])
     f.close()
 
+    shutil.copy("/home/hduser/HelloSparkJava/init.jpg","/home/hduser/face_merge/init.jpg")
+    filename1 = "init.jpg"
+
     shutil.copy("/home/hduser/StarGAN/data/CelebA_nocrop/image/" + img[Img_num],"/home/hduser/face_merge/find.jpg")
     print("finish finding and copy image")
     filename2 = "find.jpg"
@@ -168,6 +171,6 @@ if __name__ == '__main__':
     cv2.imwrite(output_file, img_morphed)
     print("finish merge")
     shutil.copy("/home/hduser/face_merge/" + output_file,"/home/hduser/HelloSparkJava/result.jpg")
-    shutil.copy("/home/hduser/face_merge/" + filename1,"/home/hduser/HelloSparkJava/init.jpg")
+    # shutil.copy("/home/hduser/face_merge/" + filename1,"/home/hduser/HelloSparkJava/init.jpg")
     shutil.copy("/home/hduser/face_merge/find.jpg","/home/hduser/HelloSparkJava/find.jpg")
 
