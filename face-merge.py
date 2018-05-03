@@ -133,29 +133,29 @@ if __name__ == '__main__':
         alpha = 0.5
 
     f = open("/home/hduser/StarGAN/data/list_attr_celeba.txt")
-	line = f.readline() 
-	print("The attributes we select:")
-	print(line.split()[9])
-	print(line.split()[20])
-	print(line.split()[31])
-	print(line.split()[33])
-	img  = []
-	while line:
+    line = f.readline() 
+    print("The attributes we select:")
+    print(line.split()[9])
+    print(line.split()[20])
+    print(line.split()[31])
+    print(line.split()[33])
+    img  = []
+    while line:
 	    array = line.split()
-	    if (array[9] == Blond_Hair): 
-	        if (array[20] == Male): 
-	            if (array[31] == Smiling):
-	                if (array[33] == Wavy_Hair):
-	                    img.append(array[0])
-	    line = f.readline()
+        if (array[9] == Blond_Hair): 
+            if (array[20] == Male): 
+                if (array[31] == Smiling):
+                    if (array[33] == Wavy_Hair):
+                        img.append(array[0])
+        line = f.readline()
 
-	print("Total images in CelebA with same features: "+ str(len(img)))
-	print("The first image in all the "+ str(len(img)) + " images is: "+img[0])
-	f.close()
+    print("Total images in CelebA with same features: "+ str(len(img)))
+    print("The first image in all the "+ str(len(img)) + " images is: "+img[0])
+    f.close()
 
-	shutil.copy("/home/hduser/StarGAN/data/CelebA_nocrop/image/" + img[0],"/home/hduser/face_merge/find.jpg")
-	print("finish finding and copy image")
-	filename2 = "find.jpg"
+    shutil.copy("/home/hduser/StarGAN/data/CelebA_nocrop/image/" + img[0],"/home/hduser/face_merge/find.jpg")
+    print("finish finding and copy image")
+    filename2 = "find.jpg"
     img_morphed = morph_faces(filename1, filename2, alpha)
     output_file = '{}_{}_{}.jpg'.format(
         filename1.split('.')[0], filename2.split('.')[0], alpha)
