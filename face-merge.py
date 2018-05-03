@@ -140,12 +140,20 @@ if __name__ == '__main__':
     print(line.split()[31])
     print(line.split()[33])
     img  = []
+    # while line:
+    #     array = line.split()
+    #     if (array[9] == int(Blond_Hair)): 
+    #         if (array[20] == int(Male): 
+    #             if (array[31] == int(Smiling):
+    #                 if (array[33] == int(Wavy_Hair)):
+    #                     img.append(array[0])
+    #     line = f.readline()
     while line:
-	    array = line.split()
-        if (array[9] == int(Blond_Hair)): 
-            if (array[20] == int(Male): 
-                if (array[31] == int(Smiling):
-                    if (array[33] == int(Wavy_Hair)):
+        array = line.split()
+        if (array[9] == "int(Blond_Hair)"): 
+            if (array[20] == "int(Male)": 
+                if (array[31] == "int(Smiling)":
+                    if (array[33] == "int(Wavy_Hair)"):
                         img.append(array[0])
         line = f.readline()
 
