@@ -127,9 +127,13 @@ if __name__ == '__main__':
     Male = int(sys.argv[3])
     Smiling = int(sys.argv[4])
     Wavy_Hair = int(sys.argv[5])
-    # filename2 = sys.argv[2]
     try:
-        alpha = float(sys.argv[6])
+        Img_num = int(sys.argv[6])
+    except:
+        Img_num = 0
+    
+    try:
+        alpha = float(sys.argv[7])
     except:
         alpha = 0.5
 
@@ -140,14 +144,11 @@ if __name__ == '__main__':
     # print ("The value of Smiling: " + Smiling)
     # print ("The value of Wavy_Hair: " + Wavy_Hair)
     array = line.split()
-    print (array[9])
-    print (array[20])
-    print (array[31])
-    print (array[33])
-    print (Blond_Hair)
-    print (Male)
-    print (Smiling)
-    print (Wavy_Hair)
+    print ("The Blond_Hair value: " + str(Blond_Hair))
+    print ("The Male value: " + str(Male))
+    print ("The Smiling value: " + str(Smiling))
+    print ("The Wavy_Hair value: " + str(Wavy_Hair))
+    
     img  = []
     while line:
         array = line.split()
@@ -168,10 +169,10 @@ if __name__ == '__main__':
     #     line = f.readline()
 
     print("Total images in CelebA with same features: "+ str(len(img)))
-    print("The first image in all the "+ str(len(img)) + " images is: "+img[0])
+    print("The first image in all the "+ str(len(img)) + " images is: "+img[Img_num])
     f.close()
 
-    shutil.copy("/home/hduser/StarGAN/data/CelebA_nocrop/image/" + img[0],"/home/hduser/face_merge/find.jpg")
+    shutil.copy("/home/hduser/StarGAN/data/CelebA_nocrop/image/" + img[Img_num],"/home/hduser/face_merge/find.jpg")
     print("finish finding and copy image")
     filename2 = "find.jpg"
     img_morphed = morph_faces(filename1, filename2, alpha)
